@@ -1,14 +1,13 @@
 import {Link} from 'react-router-dom'
 
 export default function ProductCard({productValue}) {
-console.log(productValue,'value')
   return (
     <div className="col-sm-12 col-md-6 col-lg-3 my-3">
       <div className="card p-3 rounded">
         <img className="card-img-top mx-auto" alt='card' src={productValue.images[0].image} />
         <div className="card-body d-flex flex-column">
           <h5 className="card-title">
-            <Link to={'product/'+productValue._id}>
+            <Link to={'products/'+productValue._id}>
               {productValue.name}
             </Link>
           </h5>
@@ -18,7 +17,7 @@ console.log(productValue,'value')
             </div>
           </div>
           <p className="card-text">{productValue.price}</p>
-          <Link to={'product/'+productValue._id} id="view_btn" className="btn btn-block">
+          <Link to={'products/'+productValue._id} id="view_btn" className="btn btn-block">
             View Details
           </Link>
         </div>
