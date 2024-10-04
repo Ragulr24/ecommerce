@@ -23,16 +23,15 @@ export default function ProductDetail({ cartItems, setCartItems }) {
   }
 
   function IncQuantity() {
-    if(product.stock == quantity){
-        return;
+    if (product.stock == quantity) {
+      return;
     }
-        setQuantity((state) => state + 1);
-    }
-  
+    setQuantity((state) => state + 1);
+  }
 
   function DecQuantity() {
-    if(quantity > 1){
-        setQuantity((state) => state - 1);
+    if (quantity > 1) {
+      setQuantity((state) => state - 1);
     }
   }
   return (
@@ -68,8 +67,8 @@ export default function ProductDetail({ cartItems, setCartItems }) {
 
           <p id="product_price">₹ {product.price}</p>
           <div className="stockCounter d-inline">
-            <span className="btn btn-danger minus" onClick={DecQuantity} >
-               -
+            <span className="btn btn-danger minus" onClick={DecQuantity}>
+              -
             </span>
 
             <input

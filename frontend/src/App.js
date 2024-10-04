@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <Router>
         <div>
-          <ToastContainer theme="dark" position="top-center"/>
+          <ToastContainer theme="dark" position="top-center" />
           <Header cartItems={cartItems} />
           <Routes>
             <Route path="/" element={<Home />} />
