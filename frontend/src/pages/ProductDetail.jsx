@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 export default function ProductDetail({ cartItems, setCartItems }) {
   const [product, setProduct] = useState("");
   const { id } = useParams();
-  const [quantity, setQuantity] = useState(1);
+  const [qty, setQty] = useState(1);
 
   useEffect(() => {
     fetch(process.env.REACT_APP_API_URL + "/products/" + id)
@@ -16,22 +16,22 @@ export default function ProductDetail({ cartItems, setCartItems }) {
   function carthandler() {
     const itemExist = cartItems.find((item) => item.product._id == product._id);
     if (!itemExist) {
-      const newItems = { product, quantity };
+      const newItems = { product, qty };
       setCartItems((state) => [...state, newItems]);
       toast.success("Cart item added succesfully!");
     }
   }
 
-  function IncQuantity() {
-    if (product.stock == quantity) {
+  function IncQty() {
+    if (product.stock == qty) {
       return;
     }
-    setQuantity((state) => state + 1);
+    setQty((state) => state + 1);
   }
 
-  function DecQuantity() {
-    if (quantity > 1) {
-      setQuantity((state) => state - 1);
+  function DecQty() {
+    if (qty > 1) {
+      setQty((state) => state - 1);
     }
   }
   return (
@@ -67,18 +67,18 @@ export default function ProductDetail({ cartItems, setCartItems }) {
 
           <p id="product_price">₹ {product.price}</p>
           <div className="stockCounter d-inline">
-            <span className="btn btn-danger minus" onClick={DecQuantity}>
+            <span className="btn btn-danger minus" onClick={DecQty}>
               -
             </span>
 
             <input
               type="number"
               className="form-control count d-inline"
-              value={quantity}
+              value={qty}
               readOnly
             />
 
-            <span className="btn btn-primary plus" onClick={IncQuantity}>
+            <span className="btn btn-primary plus" onClick={IncQty}>
               +
             </span>
           </div>

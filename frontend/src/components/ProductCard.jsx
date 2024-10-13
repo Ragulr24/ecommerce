@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function ProductCard({ productValue }) {
+
   return (
     <div className="col-sm-12 col-md-6 col-lg-3 my-3">
       <div className="card p-3 rounded">
@@ -21,7 +22,7 @@ export default function ProductCard({ productValue }) {
               ></div>
             </div>
           </div>
-          <p className="card-text">{productValue.price}</p>
+          <p className="card-text">₹{productValue.price}</p>
           <Link
             to={"products/" + productValue._id}
             id="view_btn"
